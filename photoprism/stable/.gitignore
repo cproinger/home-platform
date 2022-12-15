@@ -1,0 +1,2 @@
+# ignore env-files (never want to commit to public github-repo)
+.env
