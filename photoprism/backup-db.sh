@@ -1,2 +1,2 @@
 #!/bin/bash
-docker-compose -f /dockerstuff/git/home-platform/photoprism/photoprism-stack.docker-compose.yml exec -T photoprism photoprism backup -i - | gzip > /dockerstuff/photoprism/backup/photoprism-d b-$(date '+%Y-%m-%d').sql.gz
+docker-compose -f /dockerstuff/git/home-platform/photoprism/photoprism-stack.docker-compose.yml exec -T photoprism photoprism backup -i - | gzip > /dockerstuff/photoprism/backup/photoprism_mariadb_$(date '+%Y-%m-%d').sql.gz
