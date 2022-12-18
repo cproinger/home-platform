@@ -105,6 +105,9 @@ services:
   ## Database Server (recommended)
   ## see https://docs.photoprism.app/getting-started/faq/#should-i-use-sqlite-mariadb-or-mysql
   mariadb:
+    # to access photoprism db from outside
+    ports:
+      - "3306:3306"
     ## If MariaDB gets stuck in a restart loop, this points to a memory or filesystem issue:
     ## https://docs.photoprism.app/getting-started/troubleshooting/#fatal-server-errors
     restart: unless-stopped
