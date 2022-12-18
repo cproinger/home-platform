@@ -4,3 +4,8 @@ TARGET_FILE="/dockerstuff/photoprism/backup/photoprism_mariadb_${BACKUP_TS}.sql.
 echo "starting photoprism-mariadb-backup at $(date '+%Y-%m-%d_%H-%M')" > /dockerstuff/photoprism/backup/backup.log
 docker-compose -f /dockerstuff/git/home-platform/photoprism/photoprism-stack.docker-compose.yml exec -T photoprism photoprism backup -i - | gzip > $TARGET_FILE
 echo "finished photoprism-mariadb-backup at $(date '+%Y-%m-%d_%H-%M')" > /dockerstuff/photoprism/backup/backup.log
+
+echo "sourcing bucket-config.sh"
+. bucket-config.sh
+echo "copying backupfile to s3"
+aws s3 cp $TARGET_FILE s3://$BUCKET_NAME/mariadb/ --storage-class DEEP_ARCHIVE
