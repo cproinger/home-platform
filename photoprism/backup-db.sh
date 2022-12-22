@@ -6,6 +6,6 @@ docker-compose -f /dockerstuff/git/home-platform/photoprism/photoprism-stack.doc
 echo "finished photoprism-mariadb-backup at $(date '+%Y-%m-%d_%H-%M')" > /dockerstuff/photoprism/backup/backup.log
 
 echo "sourcing bucket-config.sh"
-. bucket-config.sh
+. /dockerstuff/git/home-platform/photoprism/bucket-config.sh
 echo "copying backupfile to s3"
 aws s3 cp $TARGET_FILE s3://$BUCKET_NAME/mariadb/ --storage-class DEEP_ARCHIVE
