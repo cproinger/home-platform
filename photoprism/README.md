@@ -18,6 +18,6 @@ curl https://raw.githubusercontent.com/cproinger/home-platform/master/photoprism
 ## Cron
 
 ```
-# photoprism-db-backup (sundays at 00:05)
-5 0 * * SUN . /dockerstuff/git/home-platform/photoprism/backup-db.sh
+# photoprism-db-backup (sundays at 02:00)
+0 2 * * SUN . /dockerstuff/git/home-platform/photoprism/backup-all.sh
 ```
